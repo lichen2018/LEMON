@@ -22,7 +22,7 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
 ### Install
 git clone --recursive https://github.com/lichen2018/hgt-detection.git
 ## HGT-detection usage
-- ### Detect raw HGT breakpoints.
+### 1.Detect raw HGT breakpoints.
 ```
 usage: python ../scripts/get_raw_bkp.py [options]
 ```
@@ -36,7 +36,7 @@ usage: python ../scripts/get_raw_bkp.py [options]
   ```
   -t INT  number of threads [4]
   ```
-- ### Detect accurate HGT breakpoints.
+### 2.Detect accurate HGT breakpoints.
 ```
 usage: python ../scripts/get_accurate_bkp.py [options]
 ```
@@ -51,7 +51,7 @@ usage: python ../scripts/get_accurate_bkp.py [options]
   ```
   -t INT  number of threads [10]
   ```
-- ### Get HGT references.
+### 3.Get HGT references.
 ```
 usage: python ../scripts/get_reference.py [options]
 ```
