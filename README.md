@@ -26,7 +26,8 @@ git clone --recursive https://github.com/lichen2018/hgt-detection.git
 ```
 usage: python ../scripts/get_raw_bkp.py [options]
 ```
-### Required arguments  ```
+### Required arguments  
+  ```
   -r FILE  Metagenomic Reference 
   -u FILE  unique reads bam file
   -o FILE  raw breakpoints file
