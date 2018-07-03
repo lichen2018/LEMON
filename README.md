@@ -69,5 +69,9 @@ usage: python ../scripts/get_reference.py [options]
 ### Preprocessing
 ```
 # Align the data
-bwa mem -M -t 8 -R \"@RG\tID:id\tSM:sample\tLB:lib\"
+bwa mem -M -t 8 -R "@RG\tID:id\tSM:sample\tLB:lib" Metagenomic_reference.fasta sample.1.fq sample.2.fq | samtools view -bhS -> sample.bam
+# Sort bam file
+samtools sort -o sample.sort.bam sample.bam
+#Extract split reads
+samtools view -h sample.sort.bam \
 ```
