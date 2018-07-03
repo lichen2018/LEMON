@@ -1,4 +1,3 @@
-
 # hgt-detection
 It is a software takes use of existing shotgun NGS datasets to detect HGT breakpoints, identify the transferred genome segments, and reconstructs the inserted local haplotype.
 ## Table of Contents
@@ -24,5 +23,5 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
 git clone --recursive https://github.com/lichen2018/hgt-detection.git
 ## HGT-detection usage
 1. Detect raw HGT breakpoints.
-`usage: ../scripts/get_raw_bkp.py [options]`
+```usage: ../scripts/get_raw_bkp.py [options]```
 
