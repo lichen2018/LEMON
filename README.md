@@ -26,12 +26,10 @@ git clone --recursive https://github.com/lichen2018/hgt-detection.git
 ```
 usage: python ../scripts/get_raw_bkp.py [options]
 ```
-### Required arguments
-  ```
-  -r FILE      Metagenomic Reference
-  -id FILE     .txt file which stores Sample name or id list
-  --unique_dir STR  path to the directory where unique bam is stored
-  --raw_dir    STR  path to the directory where raw breakpoints result should be stored
+### Required arguments  ```
+  -r FILE  Metagenomic Reference 
+  -u FILE  unique reads bam file
+  -o FILE  raw breakpoints file
   ```
 ### Option arguments
   ```
@@ -43,11 +41,10 @@ usage: python ../scripts/get_accurate_bkp.py [options]
 ```
 ### Required arguments
   ```
-  -r             FILE  Metagenomic Reference
-  -id            FILE  .txt file which stores Sample name or id list
-  --raw_dir      STR   path to the directory where raw breakpoints result is stored
-  --splitter_dir STR   path to the directory where unique bam is stored
-  --acc_dir      STR   path to the directory where accurate reakpoints result should be stored
+  -r        FILE  Metagenomic Reference
+  -s        FILE  split reads bam file
+  --raw_bkp FILE  raw breakpoints file
+  -o        FILE  accurate reakpoints file
   ```
 ### Option arguments
   ```
@@ -60,18 +57,27 @@ usage: python ../scripts/get_reference.py [options]
 ### Required arguments
   ```
   -r        FILE  Metagenomic Reference
-  -id       FILE  .txt file which stores Sample name or id list
-  --acc_dir STR   path to the directory where accurate breakpoints result is stored
-  --cov_dir STR   path to the directory where coverage file is stored
-  --out_dir STR   path to the directory where result should be stored
+  -c        FILE  coverage file
+  -id       STR   Sample name or id
+  --acc_bkp FILE  accurate reakpoints file
+  --out_dir STR   path to the directory where results should be stored
   ```
 ## Example workflow
 ### Preprocessing
 ```
 # Align the data
-bwa mem -M -t 8 -R "@RG\tID:id\tSM:sample\tLB:lib" Metagenomic_reference.fasta sample.1.fq sample.2.fq | samtools view -bhS -> sample.bam
+bwa mem -M -t 8 -R "@RG\tID:id\tSM:sample\tLB:lib" Metagenomic_reference.fasta sample.1.fq sample.2.fq \
+  | samtools view -bhS -> sample.unsort.bam
 # Sort bam file
-samtools sort -o sample.sort.bam sample.bam
-#Extract split reads
+samtools sort -o sample.bam sample.unsort.bam
+# Extract split reads
 samtools view -h sample.sort.bam \
+  | lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
+  | samtools view -Sb > sample.unsort.splitters.bam
+# Sort split reads bam file
+samtools sort -o sample.splitters.bam sample.unsort.splitters.bam
+# Extract unique reads bam file
+samtools view -q 20 -b sample.bam > sample.unique.bam
+# Calculate coverage
+bedtools genomecov -ibam sample.bam -bg > sample.coverage.txt
 ```
