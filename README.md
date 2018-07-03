@@ -36,7 +36,7 @@ usage: python ../scripts/get_raw_bkp.py [options]
   ```
   -t INT  number of threads [4]
   ```
-### - Detect accurate HGT breakpoints.
+- ### Detect accurate HGT breakpoints.
 ```
 usage: python ../scripts/get_accurate_bkp.py [options]
 ```
@@ -51,7 +51,7 @@ usage: python ../scripts/get_accurate_bkp.py [options]
   ```
   -t INT  number of threads [10]
   ```
-### - Get HGT references.
+- ### Get HGT references.
 ```
 usage: python ../scripts/get_reference.py [options]
 ```
