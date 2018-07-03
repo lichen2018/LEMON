@@ -22,9 +22,9 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
 ### Install
 git clone --recursive https://github.com/lichen2018/hgt-detection.git
 ## HGT-detection usage
-### 1.Detect raw HGT breakpoints.
+### 1. Detect raw HGT breakpoints.
 ```
-usage: python ../scripts/get_raw_bkp.py [options]
+usage: python hgt-detection/scripts/get_raw_bkp.py [options]
 ```
 #### Required arguments  
   ```
@@ -36,9 +36,9 @@ usage: python ../scripts/get_raw_bkp.py [options]
   ```
   -t INT  number of threads [4]
   ```
-### 2.Detect accurate HGT breakpoints.
+### 2. Detect accurate HGT breakpoints.
 ```
-usage: python ../scripts/get_accurate_bkp.py [options]
+usage: python hgt-detection/scripts/get_accurate_bkp.py [options]
 ```
 #### Required arguments
   ```
@@ -51,9 +51,9 @@ usage: python ../scripts/get_accurate_bkp.py [options]
   ```
   -t INT  number of threads [10]
   ```
-### 3.Get HGT references.
+### 3. Get HGT references.
 ```
-usage: python ../scripts/get_reference.py [options]
+usage: python hgt-detection/scripts/get_reference.py [options]
 ```
 #### Required arguments
   ```
@@ -90,11 +90,11 @@ bedtools genomecov -ibam sample.bam -bg > sample.coverage.txt
 ### Running HGT-detection
 ```
 # 1. Detect raw HGT breakpoints.
-python ../scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sample.raw.txt
+python hgt-detection/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sample.raw.txt
 
 # 2. Detect accurate HGT breakpoints.
-python ../scripts/get_accurate_bkp.py -r meta_ref.fasta -s sample.splitters.bam --raw_bkp sample.raw.txt -o sample.acc.txt
+python hgt-detection/scripts/get_accurate_bkp.py -r meta_ref.fasta -s sample.splitters.bam --raw_bkp sample.raw.txt -o sample.acc.txt
 
 # 3. Get HGT references.
-python ../scripts/get_reference.py -r meta_ref.fasta -c sample.coverage.txt -id sample --acc_bkp sample.acc.txt --out_dir ./
+python hgt-detection/scripts/get_reference.py -r meta_ref.fasta -c sample.coverage.txt -id sample --acc_bkp sample.acc.txt --out_dir ./
 ```
