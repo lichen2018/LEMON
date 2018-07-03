@@ -1,9 +1,9 @@
 # hgt-detection
 It is a software takes use of existing shotgun NGS datasets to detect HGT breakpoints, identify the transferred genome segments, and reconstructs the inserted local haplotype.
 ## Table of Contents
-1. [Installation](#readme)
-2. [HGT-detection usage](#readme)
-3. [Example workflow](#readme)
+1. [Installation](#Installation)
+2. [HGT-detection usage](#HGT-detection usage)
+3. [Example workflow](#Example workflow)
 ## Installation
 ### Requirements
 - Softwares
