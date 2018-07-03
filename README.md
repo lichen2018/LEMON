@@ -20,4 +20,5 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
   - numpy
   - scipy
   - lmfit
+### Install
 git clone --recursive https://github.com/lichen2018/hgt-detection.git
