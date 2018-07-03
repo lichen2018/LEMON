@@ -69,16 +69,21 @@ usage: python ../scripts/get_reference.py [options]
 # Align the data
 bwa mem -M -t 8 -R "@RG\tID:id\tSM:sample\tLB:lib" Metagenomic_reference.fasta sample.1.fq sample.2.fq \
   | samtools view -bhS -> sample.unsort.bam
+
 # Sort bam file
 samtools sort -o sample.bam sample.unsort.bam
+
 # Extract split reads
 samtools view -h sample.sort.bam \
   | lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
   | samtools view -Sb > sample.unsort.splitters.bam
+
 # Sort split reads bam file
 samtools sort -o sample.splitters.bam sample.unsort.splitters.bam
+
 # Extract unique reads bam file
 samtools view -q 20 -b sample.bam > sample.unique.bam
+
 # Calculate coverage
 bedtools genomecov -ibam sample.bam -bg > sample.coverage.txt
 ```
