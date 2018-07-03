@@ -27,7 +27,7 @@ git clone --recursive https://github.com/lichen2018/hgt-detection.git
 usage: python hgt-detection/scripts/get_raw_bkp.py [options]
 ```
 #### Required arguments  
-  ```
+```
   -r FILE  Metagenomic Reference 
   -u FILE  unique reads bam file
   -o FILE  raw breakpoints file
@@ -67,13 +67,14 @@ usage: python hgt-detection/scripts/get_reference.py [options]
 ### Preprocessing
 ```
 # Align the data
-bwa mem -M -t 8 -R "@RG\tID:id\tSM:sample\tLB:lib" Metagenomic_reference.fasta sample.1.fq sample.2.fq  | samtools view -bhS -> sample.unsort.bam
+bwa mem -M -t 8 -R "@RG\tID:id\tSM:sample\tLB:lib" Metagenomic_reference.fasta sample.1.fq sample.2.fq \
+  | samtools view -bhS -> sample.unsort.bam
 
 # Sort bam file
 samtools sort -o sample.bam sample.unsort.bam
 
 # Extract split reads
-samtools view -h sample.sort.bam \
+samtools view -h sample.bam \
   | lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin \
   | samtools view -Sb > sample.unsort.splitters.bam
 
