@@ -26,4 +26,19 @@ git clone --recursive https://github.com/lichen2018/hgt-detection.git
 ```
 usage: ../scripts/get_raw_bkp.py [options]
 ```
+### Required arguments
+  ```
+  -r       FILE  Metagenomic Reference
+  -id      FILE  .txt file which stores Sample name or id list
+  -in_dir  STR   path to the directory where unique bam is stored
+  -out_dir STR   path to the directory where result should store
+  ```
+### Option arguments
+  ```
+  -t       INT   number of threads to 
+  ```
+2. Detect precise HGT breakpoints.
+```
+usage: ../scripts/get_precise_bkp.py [options]
+```
 
