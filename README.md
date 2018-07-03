@@ -68,6 +68,6 @@ usage: python ../scripts/get_reference.py [options]
 ## Example workflow
 ### Preprocessing
 ```
-\# Align the data
-
+# Align the data
+bwa mem -M -t 8 -R \"@RG\tID:id\tSM:sample\tLB:lib\"
 ```
