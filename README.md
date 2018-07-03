@@ -20,7 +20,10 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
   - scipy
   - lmfit
 ### Install
+Download and install
+```
 git clone --recursive https://github.com/lichen2018/hgt-detection.git
+```
 ## HGT-detection usage
 ### 1. Detect raw HGT breakpoints.
 ```
