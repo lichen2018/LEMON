@@ -31,15 +31,15 @@ usage: python ../scripts/get_raw_bkp.py [options]
   -r FILE      Metagenomic Reference
   -id FILE     .txt file which stores Sample name or id list
   --unique_dir STR  path to the directory where unique bam is stored
-  --out_dir    STR  path to the directory where raw breakpoints result should store
+  --raw_dir    STR  path to the directory where raw breakpoints result should be stored
   ```
 ### Option arguments
   ```
   -t INT  number of threads 
   ```
-2. Detect precise HGT breakpoints.
+2. Detect accurate HGT breakpoints.
 ```
-usage: python ../scripts/get_precise_bkp.py [options]
+usage: python ../scripts/get_accurate_bkp.py [options]
 ```
 ### Required arguments
   ```
@@ -47,9 +47,23 @@ usage: python ../scripts/get_precise_bkp.py [options]
   -id            FILE  .txt file which stores Sample name or id list
   --raw_dir      STR   path to the directory where raw breakpoints result is stored
   --splitter_dir STR   path to the directory where unique bam is stored
-  --out_dir      STR   path to the directory where precise reakpoints result should store
+  --acc_dir      STR   path to the directory where accurate reakpoints result should be stored
   ```
 ### Option arguments
   ```
-  -t INT   number of threads 
+  -t INT  number of threads 
   ```
+3. Get precise HGT references.
+```
+usage: python ../scripts/get_reference.py [options]
+```
+### Required arguments
+  ```
+  -r        FILE  Metagenomic Reference
+  -id       FILE  .txt file which stores Sample name or id list
+  --acc_dir STR   path to the directory where accurate breakpoints result is stored
+  --cov_dir STR   path to the directory where coverage file is stored
+  --out_dir STR   path to the directory where result should be stored
+  ```
+## Example workflow
+### Preprocessing
