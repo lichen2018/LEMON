@@ -67,3 +67,7 @@ usage: python ../scripts/get_reference.py [options]
   ```
 ## Example workflow
 ### Preprocessing
+```
+\# Align the data
+
+```
