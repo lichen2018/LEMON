@@ -33,8 +33,8 @@ usage: python hgt-detection/scripts/get_raw_bkp.py [options]
 ```
   -r     FILE  Metagenomic Reference 
   -u     FILE  unique reads bam file
-  -o     FILE  raw breakpoints file
   --rlen INT   length of read
+  -o     FILE  raw breakpoints file
   ```
 #### Option arguments
   ```
@@ -63,7 +63,7 @@ usage: python hgt-detection/scripts/get_reference.py [options]
   ```
   -r        FILE  Metagenomic Reference
   -c        FILE  coverage file
-  -id       STR   Sample name or id
+  --id      STR   Sample name or id
   --rlen    INT   length of read
   --acc_bkp FILE  accurate reakpoints file
   --out_dir STR   path to the directory where results should be stored
@@ -105,5 +105,5 @@ python hgt-detection/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.b
 python hgt-detection/scripts/get_accurate_bkp.py -r meta_ref.fasta -s sample.splitters.bam --raw_bkp sample.raw.txt -o sample.acc.txt
 
 # 3. Get HGT references.
-python hgt-detection/scripts/get_reference.py -r meta_ref.fasta -c sample.coverage.txt -id sample --rlen 150 --rep_flag y --acc_bkp sample.acc.txt --out_dir ./
+python hgt-detection/scripts/get_reference.py -r meta_ref.fasta -c sample.coverage.txt --id sample --rlen 150 --rep_flag y --acc_bkp sample.acc.txt --out_dir ./
 ```
