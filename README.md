@@ -66,6 +66,10 @@ usage: python hgt-detection/scripts/get_reference.py [options]
   --acc_bkp FILE  accurate reakpoints file
   --out_dir STR   path to the directory where results should be stored
   ```
+#### Option arguments
+  ```
+  --rep_flag STR  whether output replication hgt reference? [n]
+  ```
 ## Example workflow
 ### Preprocessing
 ```
@@ -99,5 +103,5 @@ python hgt-detection/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.b
 python hgt-detection/scripts/get_accurate_bkp.py -r meta_ref.fasta -s sample.splitters.bam --raw_bkp sample.raw.txt -o sample.acc.txt
 
 # 3. Get HGT references.
-python hgt-detection/scripts/get_reference.py -r meta_ref.fasta -c sample.coverage.txt -id sample --acc_bkp sample.acc.txt --out_dir ./
+python hgt-detection/scripts/get_reference.py -r meta_ref.fasta -c sample.coverage.txt -id sample --acc_bkp sample.acc.txt --out_dir ./ --rep_flag y
 ```
