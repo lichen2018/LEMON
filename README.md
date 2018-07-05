@@ -30,7 +30,7 @@ git clone --recursive https://github.com/lichen2018/hgt-detection.git
 usage: python hgt-detection/scripts/get_raw_bkp.py [options]
 ```
 #### Required arguments  
-```
+  ```
   -r     FILE  Metagenomic Reference 
   -u     FILE  unique reads bam file
   --rlen INT   length of read
