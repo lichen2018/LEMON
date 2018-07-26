@@ -33,7 +33,6 @@ usage: python hgt-detection/scripts/get_raw_bkp.py [options]
   ```
   -r     FILE  Metagenomic Reference 
   -u     FILE  unique reads bam file
-  --rlen INT   length of read
   -o     FILE  raw breakpoints file
   ```
 #### Option arguments
@@ -100,7 +99,7 @@ bedtools genomecov -ibam sample.bam -bg > sample.coverage.txt
 ### Running HGT-detection
 ```
 # 1. Detect raw HGT breakpoints.
-python hgt-detection/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam --rlen 150 -o sample.raw.txt
+python hgt-detection/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sample.raw.txt
 
 # 2. Detect accurate HGT breakpoints.
 python hgt-detection/scripts/get_accurate_bkp.py -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam --raw_bkp sample.raw.txt -o sample.acc.txt
