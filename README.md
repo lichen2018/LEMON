@@ -1,8 +1,8 @@
-# hgt-detection
+# LEMON
 It is a software takes use of existing shotgun NGS datasets to detect HGT breakpoints, identify the transferred genome segments, and reconstructs the inserted local haplotype.
 ## Table of Contents
 1. [Installation](#installation)
-2. [HGT-detection usage](#hgt-detection-usage)
+2. [LEMON usage](#LEMON-usage)
 3. [Example workflow](#example-workflow)
 ## Installation
 ### Requirements
@@ -24,7 +24,7 @@ Download and install
 ```
 git clone --recursive https://github.com/lichen2018/hgt-detection.git
 ```
-## HGT-detection usage
+## LEMON usage
 ### 1. Detect raw HGT breakpoints.
 ```
 usage: python hgt-detection/scripts/get_raw_bkp.py [options]
@@ -96,14 +96,14 @@ samtools view -q 20 -b sample.bam > sample.unique.bam
 # Calculate coverage
 bedtools genomecov -ibam sample.bam -bg > sample.coverage.txt
 ```
-### Running HGT-detection
+### Running LEMON
 ```
 # 1. Detect raw HGT breakpoints.
-python hgt-detection/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sample.raw.txt
+python LEMON/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sample.raw.txt
 
 # 2. Detect accurate HGT breakpoints.
-python hgt-detection/scripts/get_accurate_bkp.py -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam --raw_bkp sample.raw.txt -o sample.acc.txt
+python LEMON/scripts/get_accurate_bkp.py -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam --raw_bkp sample.raw.txt -o sample.acc.txt
 
 # 3. Get HGT references.
-python hgt-detection/scripts/get_reference.py -r meta_ref.fasta -c sample.coverage.txt -u sample.unique.bam --id sample --rep_flag y --acc_bkp sample.acc.txt --out_dir ./
+python LEMON/scripts/get_reference.py -r meta_ref.fasta -c sample.coverage.txt -u sample.unique.bam --id sample --rep_flag y --acc_bkp sample.acc.txt --out_dir ./
 ```
