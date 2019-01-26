@@ -19,6 +19,7 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
   - numpy
   - scipy
   - lmfit
+  - ssw-py
 ### Install
 Download and install
 ```
@@ -104,6 +105,8 @@ python LEMON/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sa
 # 2. Detect accurate HGT breakpoints.
 python LEMON/scripts/get_accurate_bkp.py -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam --raw_bkp sample.raw.txt -o sample.acc.txt
 
-# 3. Get HGT references.
+# 3. Reconstruct HGT strains
+
+# 4. Reconstruct HGT strains for restoring replication timing profile.
 python LEMON/scripts/get_reference.py -r meta_ref.fasta -c sample.coverage.txt -u sample.unique.bam --id sample --rep_flag y --acc_bkp sample.acc.txt --out_dir ./
 ```
