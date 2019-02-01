@@ -1,5 +1,5 @@
 # LEMON
-It is a software takes use of existing shotgun NGS datasets to detect HGT breakpoints, identify the transferred genome segments, and reconstructs the inserted local haplotype.
+It is a software takes use of existing shotgun NGS datasets to detect HGT breakpoints, identify the transferred genome segments, and reconstructs the inserted local strain.
 ## Table of Contents
 1. [Installation](#installation)
 2. [LEMON usage](#LEMON-usage)
