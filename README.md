@@ -70,10 +70,6 @@ usage: python hgt-detection/scripts/get_reference.py [options]
   --acc_bkp FILE  accurate reakpoints file
   --out_dir STR   path to the directory where results should be stored
   ```
-#### Option arguments
-  ```
-  --rep_flag STR  whether output replication hgt reference? [n]
-  ```
 ## Example workflow
 ### Preprocessing
 ```
