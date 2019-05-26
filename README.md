@@ -12,6 +12,7 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
   - Bedtools(2.20.1+)
   - LUMPY
   - Python(3.5+)
+  - Gurobipy
 - Python packages(3.5+)
   - pysam
   - sklearn
