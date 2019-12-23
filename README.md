@@ -16,11 +16,10 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
 - Python packages(3.5+)
   - pysam
   - sklearn
-  - parasail
   - numpy
   - scipy
   - lmfit
-  - ssw-py
+
 ### Install
 Download and install
 ```
