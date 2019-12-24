@@ -8,6 +8,7 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
 ### Requirements
 - Softwares
   - BWA(0.7.12+)
+  - HTSlib
   - Samtools(1.3.1+)
   - Bedtools(2.20.1+)
   - LUMPY
@@ -24,6 +25,8 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
 Download and install
 ```
 git clone --recursive https://github.com/lichen2018/hgt-detection.git
+cd getAccBkp
+make
 ```
 ## LEMON usage
 ### 1. Detect raw HGT breakpoints.
@@ -42,19 +45,16 @@ usage: python hgt-detection/scripts/get_raw_bkp.py [options]
   ```
 ### 2. Detect accurate HGT breakpoints.
 ```
-usage: python hgt-detection/scripts/get_accurate_bkp.py [options]
+usage: hgt-detection/scripts/getAccBkp/get_acc_bkp [options]
 ```
 #### Required arguments
   ```
   -r        FILE  Metagenomic Reference
   -u        FILE  unique reads bam file
   -s        FILE  split reads bam file
-  --raw_bkp FILE  raw breakpoints file
+  -b        FILE  raw breakpoints file
   -o        FILE  accurate reakpoints file
-  ```
-#### Option arguments
-  ```
-  -t INT  number of threads [10]
+  -t        INT  number of threads 
   ```
 ### 3. Get HGT references.
 ```
@@ -99,7 +99,7 @@ bedtools genomecov -ibam sample.bam -bg > sample.coverage.txt
 python LEMON/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sample.raw.txt
 
 # 2. Detect accurate HGT breakpoints.
-python LEMON/scripts/get_accurate_bkp.py -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam --raw_bkp sample.raw.txt -o sample.acc.txt
+python LEMON/scripts/get_accurate_bkp.py -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam -t 10 -b sample.raw.txt -o sample.acc.txt
 
 # 3.1 Reconstruct HGT strains for simulation.
 python LEMON/scripts/reconstruct_HGT_strain.py -r reference.fa -c test_sample.txt -a test_sample.acc.txt -s test_sample
