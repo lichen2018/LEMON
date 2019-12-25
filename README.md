@@ -102,8 +102,8 @@ python LEMON/Scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sa
 python LEMON/getAccBkp/get_acc_bkp -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam -t 10 -b sample.raw.txt -o sample.acc.txt
 
 # 3.1 Reconstruct HGT strains for simulation.
-python LEMON/scripts/reconstruct_HGT_strain.py -r reference.fa -c test_sample.txt -a test_sample.acc.txt -s test_sample
+python LEMON/Scripts/reconstruct_HGT_strain.py -r reference.fa -c test_sample.txt -a test_sample.acc.txt -s test_sample
 
 # 3.2 Reconstruct HGT strains for restoring replication timing profile.
-python LEMON/scripts/reconstruct_HGT_strain_for_replication_time.py -c sample.coverage.txt -r meta_ref.fasta -s sample -a sample.acc.bkp.txt
+python LEMON/Scripts/reconstruct_HGT_strain_for_replication_time.py -c sample.coverage.txt -r meta_ref.fasta -s sample -a sample.acc.bkp.txt
 ```
