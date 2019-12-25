@@ -31,7 +31,7 @@ make
 ## LEMON usage
 ### 1. Detect raw HGT breakpoints.
 ```
-usage: python hgt-detection/scripts/get_raw_bkp.py [options]
+usage: python LEMON/Scripts/get_raw_bkp.py [options]
 ```
 #### Required arguments  
   ```
@@ -45,7 +45,7 @@ usage: python hgt-detection/scripts/get_raw_bkp.py [options]
   ```
 ### 2. Detect accurate HGT breakpoints.
 ```
-usage: hgt-detection/scripts/getAccBkp/get_acc_bkp [options]
+usage: LEMON/getAccBkp/get_acc_bkp [options]
 ```
 #### Required arguments
   ```
@@ -58,7 +58,7 @@ usage: hgt-detection/scripts/getAccBkp/get_acc_bkp [options]
   ```
 ### 3. Get HGT references.
 ```
-usage: python hgt-detection/scripts/get_reference.py [options]
+usage: python LEMON/Scripts/get_reference.py [options]
 ```
 #### Required arguments
   ```
@@ -96,10 +96,10 @@ bedtools genomecov -ibam sample.bam -bg > sample.coverage.txt
 ### Running LEMON
 ```
 # 1. Detect raw HGT breakpoints.
-python LEMON/scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sample.raw.txt
+python LEMON/Scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sample.raw.txt
 
 # 2. Detect accurate HGT breakpoints.
-python LEMON/scripts/get_accurate_bkp.py -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam -t 10 -b sample.raw.txt -o sample.acc.txt
+python LEMON/getAccBkp/get_acc_bkp -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam -t 10 -b sample.raw.txt -o sample.acc.txt
 
 # 3.1 Reconstruct HGT strains for simulation.
 python LEMON/scripts/reconstruct_HGT_strain.py -r reference.fa -c test_sample.txt -a test_sample.acc.txt -s test_sample
