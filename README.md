@@ -20,6 +20,7 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
   - numpy
   - scipy
   - lmfit
+  - ssw-py
 
 ### Install
 Download and install
