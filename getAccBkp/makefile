@@ -1,6 +1,6 @@
 objects= get_acc_bkp.o BamHeader.o BamReader.o BamRecord.o BamWalker.o GenomicRegion.o GetAccBkp.o RefGenome.o ssw_cpp.o ssw.o
 get_acc_bkp:$(objects)
-	g++ -g -Wall -o get_acc_bkp $(objects) -I/home/lichen/htslib/include -L/home/lichen/htslib/lib -lhts
+	g++ -g -Wall -pthread -o get_acc_bkp $(objects) -I/home/lichen/htslib/include -L/home/lichen/htslib/lib -lhts
 ssw_cpp.o : ssw_cpp.h
 	g++ -g -Wall -c ssw_cpp.cpp -std=c++11 -o ssw_cpp.o
 ssw.o : ssw.h
