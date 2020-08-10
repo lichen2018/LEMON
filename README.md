@@ -59,18 +59,17 @@ usage: LEMON/getAccBkp/get_acc_bkp [options]
   -o        FILE  accurate reakpoints file
   -t        INT  number of threads 
   ```
-### 3. Get HGT references.
+### 3. Reconstruct HGT strain with replication time.
 ```
-usage: python LEMON/Scripts/get_reference.py [options]
+usage: python LEMON/Scripts/reconstruct_HGT_strain_for_replication_time.py [options]
 ```
 #### Required arguments
   ```
   -r        FILE  Metagenomic Reference
   -c        FILE  coverage file
-  -u        FILE  unique reads bam file
-  --id      STR   Sample name or id
-  --acc_bkp FILE  accurate reakpoints file
-  --out_dir STR   path to the directory where results should be stored
+  -s        STR   Sample name or id
+  -a        FILE  accurate reakpoints file
+  -o        STR   path to the directory where results should be stored
   ```
 ## Example workflow
 ### Preprocessing
@@ -103,9 +102,6 @@ python LEMON/Scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sa
 
 # 2. Detect accurate HGT breakpoints.
 LEMON/getAccBkp/get_acc_bkp -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam -t 10 -b sample.raw.txt -o sample.acc.txt
-
-# 3.1 Reconstruct HGT strains for simulation.
-python LEMON/Scripts/reconstruct_HGT_strain.py -r reference.fa -c test_sample.txt -a test_sample.acc.txt -s test_sample
 
 # 3.2 Reconstruct HGT strains for restoring replication timing profile.
 python LEMON/Scripts/reconstruct_HGT_strain_for_replication_time.py -c sample.coverage.txt -r meta_ref.fasta -s sample -a sample.acc.bkp.txt
