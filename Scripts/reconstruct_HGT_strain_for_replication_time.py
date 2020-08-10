@@ -7,7 +7,6 @@ import os
 import re
 import pysam
 import copy
-import parasail
 import random
 import copy
 import numpy as np
