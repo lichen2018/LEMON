@@ -103,6 +103,6 @@ python LEMON/Scripts/get_raw_bkp.py -r meta_ref.fasta -u sample.unique.bam -o sa
 # 2. Detect accurate HGT breakpoints.
 LEMON/getAccBkp/get_acc_bkp -r meta_ref.fasta -u sample.unique.bam -s sample.splitters.bam -t 10 -b sample.raw.txt -o sample.acc.txt
 
-# 3.2 Reconstruct HGT strains for restoring replication timing profile.
+# 3. Reconstruct HGT strains for restoring replication timing profile.
 python LEMON/Scripts/reconstruct_HGT_strain_for_replication_time.py -c sample.coverage.txt -r meta_ref.fasta -s sample -a sample.acc.bkp.txt
 ```
