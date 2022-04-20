@@ -8,7 +8,7 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
 ### Requirements
 - Softwares
   - BWA(0.7.12+)
-  - HTSlib
+  - HTSlib(1.9)
   - Samtools(1.3.1+)
   - Bedtools(2.20.1+)
   - LUMPY
