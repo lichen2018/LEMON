@@ -22,7 +22,7 @@ It is a software takes use of existing shotgun NGS datasets to detect HGT breakp
   - lmfit
   - ssw-py
 
-### Install HTSlib
+### Install HTSlib 1.9 version
 See https://github.com/samtools/htslib
 ### Install LEMON
 Download and install LEMON
@@ -30,6 +30,7 @@ Download and install LEMON
 git clone --recursive https://github.com/lichen2018/hgt-detection.git
 cd getAccBkp
 make
+export CPLUS_INCLUDE_PATH=/home/your_home_path/lib/htslib-1.9
 ```
 ## LEMON usage
 ### 1. Detect raw HGT breakpoints.
